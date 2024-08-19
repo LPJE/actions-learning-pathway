@@ -6,12 +6,28 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
-      - run: echo "$(cat hello_world.txt)"
       - name: use node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
       - name: install
         run: npm install
-      - name: build a
+      - name: build 
         run: npm run build
+  test:
+    needs: build
+    runs-on: ubunt-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: use node.js
+        uses: actions/setup-node@v3
+      - name: install npm
+        run: npm install
+      - name: test npm
+        run: npm test
+
+
+        
+      - name: test
+        run: npm test
