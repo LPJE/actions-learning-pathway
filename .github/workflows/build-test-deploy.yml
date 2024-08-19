@@ -9,14 +9,14 @@ jobs:
       - name: use node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '20.x'
       - name: install
         run: npm install
       - name: build 
         run: npm run build
   test:
     needs: build
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
