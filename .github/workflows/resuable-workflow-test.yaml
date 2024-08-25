@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 jobs:
   run-test:
-    uses: LPJE/actions-learning-pathway/blob/main/.github/workflows/build-test-deploy.yml@main
+    uses: LPJE/actions-learning-pathway/.github/workflows/build-test-deploy.yml@main
     with:
       node-version: '18.x'
     
