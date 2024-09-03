@@ -1,0 +1,21 @@
+name: Echo Secrets and Variables 
+on:
+  push: 
+    branches: 
+      - main # Triggers this action when pushes are made to main branch
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    env:
+      MY_VARIABLE: "This is not a secret"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo environment variable
+        run: echo "My environment variable is $MY_VARIABLE"
+
+      - name: Echo GitHub Secret
+        run: echo "My GitHub secret is ${{secrets.MY_GITHUB_SECRET}}"
